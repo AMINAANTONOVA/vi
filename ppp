@@ -1,0 +1,22 @@
+<?php
+
+require __DIR__ . '/vendor/autoload.php;
+
+$bot = new Telegram('1216637834:AAE8tBE5RoD0NLQvs7PSNABHyi9cPWXSlcQ');
+
+$data = $bot->getData();
+$chat_id = $data[ 'message' ][ 'chat ][ 'id' ];
+$labeled = array( 'label' => 'Subscription', 'amount' => 50);
+
+$invoice = array(
+'chat_id' => $vipsubscriptionbot,
+'title' => 'Invoice' ,
+'description' => 'If you’re looking to take your trading journey to the next level, our Vip channel is the place to be.
+We’re sending out more trades, analysis breakdowns & giving you a platform to learn from at the same time... oh, and you get your own Trading Coach to help you 1-1 throughout your journey.' ,
+'payload' => 'test'
+'provider_token' => 'sk_test_r3pyueJTFNpQP0F5MkmATdFo00OoL4aHIt' ,
+'start_parameter' => 'start' ,
+'currency' => 'EUR' ,
+'prices' => json_encode((array($labelled))));
+
+$bot->sendInvoice($invoice);
